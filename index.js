@@ -1,4 +1,5 @@
-const { Engine, Render, Runner, World, Bodies } = Matter;
+const { Engine, Render, Runner, World, Bodies, MouseConstraint, Mouse } =
+  Matter;
 
 // The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
 const engine = Engine.create();
@@ -16,6 +17,13 @@ const render = Render.create({
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
+
+World.add(
+  world,
+  MouseConstraint.create(engine, {
+    mouse: Mouse.create(render.canvas),
+  })
+);
 
 // Walls
 const walls = [
