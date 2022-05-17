@@ -1,6 +1,9 @@
 const { Engine, Render, Runner, World, Bodies, MouseConstraint, Mouse } =
   Matter;
 
+const width = 800;
+const height = 600;
+
 // The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
 const engine = Engine.create();
 // world object gets created along with the Engine object; world is comming from engine
@@ -11,8 +14,9 @@ const render = Render.create({
   element: document.body,
   engine: engine,
   options: {
-    width: 800,
-    height: 600,
+    wireframes: false,
+    width,
+    height,
   },
 });
 Render.run(render);
@@ -26,6 +30,7 @@ World.add(
 );
 
 // Walls
+
 const walls = [
   Bodies.rectangle(400, 0, 800, 40, { isStatic: true }),
   Bodies.rectangle(400, 600, 800, 40, { isStatic: true }),
@@ -34,4 +39,26 @@ const walls = [
 ];
 World.add(world, walls);
 
-World.add(world, Bodies.rectangle(200, 200, 50, 50));
+//Random Sapes
+
+for (let i = 0; i < 20; i++) {
+  if (Math.random() > 0.5) {
+    World.add(
+      world,
+      Bodies.rectangle(Math.random() * width, Math.random() * height, 50, 50, {
+        render: {
+          fillStyle: "#6E8B75",
+        },
+      })
+    );
+  } else {
+    World.add(
+      world,
+      Bodies.circle(Math.random() * width, Math.random() * height, 35, {
+        render: {
+          fillStyle: "#B1BCE5",
+        },
+      })
+    );
+  }
+}
