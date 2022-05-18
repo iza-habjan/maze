@@ -15,3 +15,9 @@
 4. If a neighbour has been visited before, remove it from the list
 5. For each remaining neighbour "move" to it and remove the wall between those two cells
 6. Repeat (from point 3.) for this new neighbour
+
+**3 arrays**
+- **grid** -> 2D array
+- **verticals** -> 2D array (keeping track of vertical walls)
+- **horizontals** -> 2D array (keeping track of horizontal walls)
+- **boolean values** inside of verticals and horizontals array (***true*** - there is no wall, ***false*** - there is a wall)
