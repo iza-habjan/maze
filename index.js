@@ -98,6 +98,11 @@ const stepThroughCell = (row, column) => {
       continue;
     }
     // Remove a wall from either horizontals or verticals
+    if (direction === "left") {
+      verticals[row][column - 1] = true;
+    } else if (direction === "right") {
+      verticals[row][column] = true;
+    }
   }
   // Visit that next cell
 };
