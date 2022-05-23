@@ -13,7 +13,7 @@ const render = Render.create({
   element: document.body,
   engine: engine,
   options: {
-    wireframes: false,
+    wireframes: true,
     width,
     height,
   },
@@ -30,3 +30,10 @@ const walls = [
   Bodies.rectangle(width, height / 2, 40, height, { isStatic: true }),
 ];
 World.add(world, walls);
+
+// Maze Generation
+
+const grid = Array(3)
+  .fill(null)
+  .map(() => Array(3).fill(false));
+console.log(grid);
