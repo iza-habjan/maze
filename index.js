@@ -1,10 +1,12 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
-const cells = 6;
+const cellsHorizontal = 4;
+const cellsVertical = 3;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-const unitLength = width / cells;
+const unitLengthX = width / cellsHorizontal;
+const unitLengthY = height / cellsVertical;
 
 // The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
 const engine = Engine.create();
