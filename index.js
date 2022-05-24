@@ -8,6 +8,8 @@ const unitLength = width / cells;
 
 // The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
 const engine = Engine.create();
+// Disabling Gravity
+engine.world.gravity.y = 0;
 // world object gets created along with the Engine object; world is comming from engine
 // world varible contains a representation of all the different shapes inside of World
 const { world } = engine;
